@@ -28,8 +28,13 @@ def AjouterApprenant():
             else:
                 print("Prenom invalide. Veuillez réessayer.")
 
+        while True:
+            promo = input("Saisir votre promo P :").strip()
+            if promo.isdigit():
+                break
+            else:
+                print("Promo invalide. Veuillez réessayer.")
         
-        promo = input("Saisir votre promo ").strip()
 
         while True:
             try:
@@ -44,11 +49,11 @@ def AjouterApprenant():
             except ValueError:
                 print("L'identifiant doit être un nombre entier")
 
-
+        promoP= 'P '+promo
         apprenants= {
-            "nom" : nom ,
+            "nom" : nom,
             "prenom" : prenom,
-            "promo" : promo,
+            "promo" : promoP,
             "identifiant" : identifiant,
             "presence": "non-pointer"
         }
@@ -127,7 +132,9 @@ def TauxPresence():
     
 
 def main ():
+    
     while True:
+        print("\033[1;34m")
         affiche_menu()
         choix = input('Choisissez un choix ').strip()
         if choix == '1':
@@ -147,6 +154,7 @@ def main ():
 
         else:
             print('Veuillez choisir une des options proposer')
+            
 
 
     
